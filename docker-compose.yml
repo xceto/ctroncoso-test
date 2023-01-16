@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile_local
+    env_file:
+      - .env
+    volumes:
+      - .:/src
+      - .:/node_modules
+    ports:
+      - '3200:3200'
+    command: 'npm run dev'
+    depends_on:
+      - database
+
+  database:
+    image: postgres:14.1-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
