@@ -11,14 +11,14 @@ export const addVaccination = async (req: Request, res: Response): Promise<void>
   const findDrug = await drugsServices.getDrug(drug_id);
 
   if (!findDrug) {
-    res.status(404).json({ message: 'drug not found ' });
+    res.status(404).json({ message: 'drug not found' });
     return;
   }
 
   const expiredDrug = new Date(date) > findDrug.available_at;
 
   if (expiredDrug) {
-    res.status(400).json({ message: 'drug expired ' });
+    res.status(400).json({ message: 'drug expired' });
     return;
   }
 

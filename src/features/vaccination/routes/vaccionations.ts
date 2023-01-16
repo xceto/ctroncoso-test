@@ -17,10 +17,10 @@ class VaccinationRoutes extends BaseRoutes {
   }
 
   public routes(): void {
-    this.router.post('/vaccination', [addVaccinationValidation], addVaccination);
-    this.router.get('/vaccination', [], getVaccination);
-    this.router.put('/vaccination/:id', [updateVaccinationSchemaValidation], updateVaccination);
-    this.router.delete('/vaccination/:id', [], deleteVaccination);
+    this.router.post('/vaccinations', [addVaccinationValidation], addVaccination);
+    this.router.get('/vaccinations', [], getVaccination);
+    this.router.put('/vaccinations/:id', [updateVaccinationSchemaValidation], updateVaccination);
+    this.router.delete('/vaccinations/:id', [], deleteVaccination);
   }
 }
 

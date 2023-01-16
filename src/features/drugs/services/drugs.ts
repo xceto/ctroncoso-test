@@ -55,7 +55,7 @@ export class DrugsServices {
   }
 
   public async getDrug(id: number): Promise<DrugModelAttributes> {
-    return (await Drug.findOne({ where: { id } })).get({ plain: true });
+    return (await Drug.findOne({ where: { id } }))?.get({ plain: true });
   }
 
   public async deleteDrug(id: number): Promise<any> {

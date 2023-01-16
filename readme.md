@@ -21,6 +21,11 @@ Aplicación que entrega la solución a la problemática dada por la compañía
  - Escribir el comando 
  -- `docker-compose up --build`
  - Verificar que el proyecto esté corriendo en el puerto señalado
+ -- - Entrar a la máquina del contenedor con el comando
+     -- `docker exec ionix_app_1 -it sh`
+ - Correr el las migraciones con el comando
+     -- `npx sequelize:db migrate`
+     
 
 ## Correr Test
 - Entrar a la máquina del contenedor con el comando

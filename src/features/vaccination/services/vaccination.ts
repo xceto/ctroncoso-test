@@ -13,7 +13,7 @@ export class VaccinationService {
     drug_id: number;
     dose: number;
     date: Date;
-  }): Promise<VaccinationModelAttributes | { error: string }> {
+  }): Promise<VaccinationModelAttributes> {
     return (
       await Vaccination.create({
         name,
@@ -28,14 +28,16 @@ export class VaccinationService {
     limit = 10,
     offset = 0,
   }: {
-    limit: number;
-    offset: number;
+    limit?: number;
+    offset?: number;
   }): Promise<{ count: number; rows: VaccinationModelAttributes[] }> {
-    return Vaccination.findAndCountAll({ limit, offset });
+    const { rows: RowsDatabase, count } = await Vaccination.findAndCountAll({ limit, offset });
+    const vaccinations = RowsDatabase.map((row) => row.get({ plain: true }));
+    return { count, rows: vaccinations };
   }
 
   public async getVaccination(id: number): Promise<VaccinationModelAttributes> {
-    return (await Vaccination.findOne({ where: { id } })).get({ plain: true });
+    return (await Vaccination.findOne({ where: { id } }))?.get({ plain: true }) || null;
   }
 
   public async updateVaccination({
@@ -50,7 +52,7 @@ export class VaccinationService {
     drug_id?: number;
     dose?: number;
     date?: Date;
-  }): Promise<any> {
+  }): Promise<number[]> {
     return Vaccination.update(
       {
         name,

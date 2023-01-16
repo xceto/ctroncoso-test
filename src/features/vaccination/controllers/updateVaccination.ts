@@ -6,7 +6,7 @@ export const updateVaccination = async (req: Request, res: Response): Promise<vo
   const { name, drug_id, dose, date } = req.body;
 
   const vaccinationService = new VaccinationService();
-  const updatedVaccination = await vaccinationService.updateVaccination({
+  const [updatedVaccination] = await vaccinationService.updateVaccination({
     id: +id,
     name,
     drug_id,

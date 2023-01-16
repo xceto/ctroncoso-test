@@ -1,4 +1,5 @@
-import { Table, Column, Model, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Table, Column, Model, PrimaryKey, AutoIncrement, ForeignKey } from 'sequelize-typescript';
+import Drug from './drug';
 
 @Table
 export default class Vaccination extends Model<Vaccination> {
@@ -10,6 +11,7 @@ export default class Vaccination extends Model<Vaccination> {
   @Column
   name: string;
 
+  @ForeignKey(() => Drug)
   @Column
   drug_id: number;
 
