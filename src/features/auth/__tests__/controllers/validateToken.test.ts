@@ -16,7 +16,7 @@ describe('validate validateToken methods', (): void => {
     await sequelize.sync({ force: true });
   });
 
-  it('validate correct token', async (): Promise<any> => {
+  it('validate correct token', async (): Promise<void> => {
     const jwt = await createJWT({});
 
     const response = await api
@@ -27,7 +27,7 @@ describe('validate validateToken methods', (): void => {
     expect(response.status).toBe(200);
   });
 
-  it('validate expired token', async (): Promise<any> => {
+  it('validate expired token', async (): Promise<void> => {
     const jwt = await createJWT({ expired: '0' });
 
     const response = await api
@@ -39,7 +39,7 @@ describe('validate validateToken methods', (): void => {
     expect(response.body).toMatch('jwt expired');
   });
 
-  it('validate incorrect token', async (): Promise<any> => {
+  it('validate incorrect token', async (): Promise<void> => {
     const jwt = await createJWT({ secret: faker.random.alphaNumeric() });
 
     const response = await api
@@ -51,7 +51,7 @@ describe('validate validateToken methods', (): void => {
     expect(response.body).toMatch('invalid signature');
   });
 
-  it('validate incorrect token', async (): Promise<any> => {
+  it('validate incorrect token', async (): Promise<void> => {
     const jwt = await createJWT({ secret: faker.random.alphaNumeric() });
 
     const response = await api
@@ -63,7 +63,7 @@ describe('validate validateToken methods', (): void => {
     expect(response.body).toMatch('jwt malformed');
   });
 
-  it('validate not send token', async (): Promise<any> => {
+  it('validate not send token', async (): Promise<void> => {
     const response = await api.post('/api/v1/jwt/validate').type('json');
 
     expect(response.status).toBe(400);

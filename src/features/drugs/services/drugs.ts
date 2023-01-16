@@ -1,4 +1,5 @@
 import Drug from '../../../entities/drug';
+import { DrugModelAttributes } from '../helpers/interfaces/drug';
 
 export class DrugsServices {
   public async saveDrug({
@@ -13,7 +14,7 @@ export class DrugsServices {
     min_dose: number;
     max_dose: number;
     available_at: Date;
-  }): Promise<any> {
+  }): Promise<DrugModelAttributes> {
     return (
       await Drug.create({
         name,
@@ -39,7 +40,7 @@ export class DrugsServices {
     min_dose?: number;
     max_dose?: number;
     available_at?: Date;
-  }): Promise<any> {
+  }): Promise<number[]> {
     return Drug.update({ name, approved, min_dose, max_dose, available_at }, { where: { id } });
   }
 
@@ -49,7 +50,7 @@ export class DrugsServices {
   }: {
     limit?: number;
     offset?: number;
-  }): Promise<any> {
+  }): Promise<{ count: number; rows: DrugModelAttributes[] }> {
     return Drug.findAndCountAll({ limit, offset });
   }
 

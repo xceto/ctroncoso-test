@@ -9,12 +9,12 @@ export const deleteDrug = async (req: Request, res: Response): Promise<void> => 
 
   const responseData = {
     0: {
-      status: '400',
+      status: 400,
       message: 'not deleted',
     },
 
     1: {
-      status: '202',
+      status: 202,
       message: 'deleted',
     },
   };
