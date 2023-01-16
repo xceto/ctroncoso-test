@@ -1,1 +1,0 @@
-{"version":3,"file":"config.js","sourceRoot":"/","sources":["src/config/config.ts"],"names":[],"mappings":";;;AAAa,QAAA,OAAO,GAAG;IACrB,MAAM,EAAE,OAAO,CAAC,GAAG,CAAC,UAAU;IAC9B,GAAG,EAAE,OAAO,CAAC,GAAG,CAAC,OAAO;CACzB,CAAC","sourcesContent":["export const jwtKeys = {\n  secret: process.env.JWT_SECRET,\n  exp: process.env.JWT_EXP,\n};\n"]}

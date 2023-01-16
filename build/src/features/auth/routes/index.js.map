@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"/","sources":["src/features/auth/routes/index.ts"],"names":[],"mappings":";;;AAAA,iCAAoC;AAG3B,2FAHA,iBAAU,OAGA;AAFnB,+BAAkC;AAEb,0FAFZ,eAAS,OAEY","sourcesContent":["import { AuthRoutes } from './auth';\nimport { JWTRoutes } from './jwt';\n\nexport { AuthRoutes, JWTRoutes };\n"]}

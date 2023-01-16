@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"/","sources":["src/features/drugs/routes/index.ts"],"names":[],"mappings":";;;AAAA,mCAAsC;AAE7B,4FAFA,mBAAW,OAEA","sourcesContent":["import { DrugsRoutes } from './drugs';\n\nexport { DrugsRoutes };\n"]}
