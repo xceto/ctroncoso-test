@@ -27,3 +27,5 @@ Aplicación que entrega la solución a la problemática dada por la compañía
      -- `docker exec ionix_app_1 -it sh`
 - Una vez dentro del contenedor correr el siguiente comando para que se vean correr los test
 -- `npm run test`
+
+[POSTMAN COLLECTIONS](https://drive.google.com/file/d/15KxNjpcH9siM7R-rD16TYEMTd627fJ9d/view?usp=sharing)]
