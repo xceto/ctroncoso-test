@@ -6,8 +6,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
       - uses: actions/checkout@devel
+      - name: build and push to docker
         uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
