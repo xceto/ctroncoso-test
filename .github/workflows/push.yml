@@ -14,5 +14,5 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: npm install
-      - name: Lint
-        run: npm run eslint
+      - name: Jest
+        run: npm run eslinttest
